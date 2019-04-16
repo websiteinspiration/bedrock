@@ -49,7 +49,7 @@ def test_newsletter_sign_up_fails_when_missing_required_fields(page_class, base_
 
 @pytest.mark.nondestructive
 @pytest.mark.parametrize(('page_class', 'url_kwargs'), [
-    (ContributePage, None),
+    pytest.param(ContributePage, None, marks=pytest.mark.smoke()),
     (MissionPage, None),
     (FirefoxAllPage, None),
     (FeaturesLandingPage, None),
