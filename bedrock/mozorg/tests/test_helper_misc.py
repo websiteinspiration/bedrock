@@ -694,5 +694,5 @@ def test_ifeq():
 
 def test_csrf():
     s = render('{{ csrf() }}', {'csrf_token': 'fffuuu'})
-    csrf = "<input type='hidden' name='csrfmiddlewaretoken' value='fffuuu' />"
+    csrf = '<input type="hidden" name="csrfmiddlewaretoken" value="fffuuu">'
     assert csrf in s
