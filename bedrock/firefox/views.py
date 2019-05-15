@@ -22,7 +22,7 @@ import querystringsafe_base64
 from product_details.version_compare import Version
 
 from lib import l10n_utils
-from lib.l10n_utils.dotlang import lang_file_is_active
+from lib.l10n_utils.dotlang import lang_file_is_active, _lazy as _
 from bedrock.base.urlresolvers import reverse
 from bedrock.base.waffle import switch
 from bedrock.contentcards.models import get_page_content_cards
@@ -240,6 +240,106 @@ def send_to_device_ajax(request):
         }
 
     return HttpResponseJSON(resp_data)
+
+
+def firefox_all(request, platform, channel):
+    locale = l10n_utils.get_locale(request)
+
+    # Only show the new template at /firefox/all/ until enough locales have it translated.
+    # Once we no longer need the old template we can redirect the old URLs to the unified page.
+    if platform is None and channel is None and lang_file_is_active('firefox/all-unified', locale):
+        view = all_downloads_unified(request)
+    else:
+        view = all_downloads(request, platform, channel)
+
+    return view
+
+
+def all_downloads_unified(request):
+    product_android = firefox_android
+    product_desktop = firefox_desktop
+
+    # Human-readable product labels
+    products = OrderedDict([
+        ('desktop_release', _('Firefox')),
+        ('desktop_beta', _('Firefox Beta')),
+        ('desktop_developer', _('Firefox Developer Edition')),
+        ('desktop_nightly', _('Firefox Nightly')),
+        ('desktop_esr', _('Firefox Extended Support Release')),
+        ('android_release', _('Firefox Android')),
+        ('android_beta', _('Firefox Android Beta')),
+        ('android_nightly', _('Firefox Android Nightly')),
+    ])
+
+    channel_release = 'release'
+    channel_beta = 'beta'
+    channel_alpha = 'alpha'
+    channel_nightly = 'nightly'
+    channel_esr = 'esr'
+    channel_esr_next = 'esr_next'
+
+    latest_release_version_desktop = product_desktop.latest_version(channel_release)
+    latest_beta_version_desktop = product_desktop.latest_version(channel_beta)
+    latest_developer_version_desktop = product_desktop.latest_version(channel_alpha)
+    latest_nightly_version_desktop = product_desktop.latest_version(channel_nightly)
+    latest_esr_version_desktop = product_desktop.latest_version(channel_esr)
+    latest_esr_next_version_desktop = product_desktop.latest_version(channel_esr_next)
+
+    latest_release_version_android = product_android.latest_version(channel_release)
+    latest_beta_version_android = product_android.latest_version(channel_beta)
+    latest_nightly_version_android = product_android.latest_version(channel_nightly)
+
+    context = {
+        'products': products.items(),
+
+        'desktop_release_platforms': product_desktop.platforms(channel_release, True),
+        'desktop_release_full_builds': product_desktop.get_filtered_full_builds(channel_release, latest_release_version_desktop),
+        'desktop_release_channel_label': product_desktop.channel_labels.get(channel_release, 'Firefox'),
+        'desktop_release_latest_version': latest_release_version_desktop,
+
+        'desktop_beta_platforms': product_desktop.platforms(channel_beta, True),
+        'desktop_beta_full_builds': product_desktop.get_filtered_full_builds(channel_beta, latest_beta_version_desktop),
+        'desktop_beta_channel_label': product_desktop.channel_labels.get(channel_beta, 'Firefox'),
+        'desktop_beta_latest_version': latest_beta_version_desktop,
+
+        'desktop_developer_platforms': product_desktop.platforms(channel_alpha, True),
+        'desktop_developer_full_builds': product_desktop.get_filtered_full_builds(channel_alpha, latest_developer_version_desktop),
+        'desktop_developer_channel_label': product_desktop.channel_labels.get(channel_alpha, 'Firefox'),
+        'desktop_developer_latest_version': latest_developer_version_desktop,
+
+        'desktop_nightly_platforms': product_desktop.platforms(channel_alpha, True),
+        'desktop_nightly_full_builds': product_desktop.get_filtered_full_builds(channel_nightly, latest_nightly_version_desktop),
+        'desktop_nightly_channel_label': product_desktop.channel_labels.get(channel_nightly, 'Firefox'),
+        'desktop_nightly_latest_version': latest_nightly_version_desktop,
+
+        'desktop_esr_platforms': product_desktop.platforms(channel_esr, True),
+        'desktop_esr_full_builds': product_desktop.get_filtered_full_builds(channel_esr, latest_esr_version_desktop),
+        'desktop_esr_channel_label': product_desktop.channel_labels.get(channel_esr, 'Firefox'),
+        'desktop_esr_latest_version': latest_esr_version_desktop,
+
+        'android_release_platforms': product_android.platforms(channel_release, True),
+        'android_release_full_builds': product_android.get_filtered_full_builds(channel_release, latest_release_version_android),
+        'android_release_channel_label': product_android.channel_labels.get(channel_release, 'Firefox'),
+        'android_release_latest_version': latest_release_version_android,
+
+        'android_beta_platforms': product_android.platforms(channel_beta, True),
+        'android_beta_full_builds': product_android.get_filtered_full_builds(channel_beta, latest_beta_version_android),
+        'android_beta_channel_label': product_android.channel_labels.get(channel_beta, 'Firefox'),
+        'android_beta_latest_version': latest_beta_version_android,
+
+        'android_nightly_platforms': product_android.platforms(channel_nightly, True),
+        'android_nightly_full_builds': product_android.get_filtered_full_builds(channel_nightly, latest_nightly_version_android),
+        'android_nightly_channel_label': product_android.channel_labels.get(channel_nightly, 'Firefox'),
+        'android_nightly_latest_version': latest_nightly_version_android,
+    }
+
+    if latest_esr_next_version_desktop:
+        context['desktop_esr_platforms_next'] = product_desktop.platforms(channel_esr_next, True)
+        context['desktop_esr_full_builds_next'] = product_desktop.get_filtered_full_builds(channel_esr_next, latest_esr_next_version_desktop)
+        context['desktop_esr_channel_label_next'] = product_desktop.channel_labels.get(channel_esr_next, 'Firefox'),
+        context['desktop_esr_next_version'] = latest_esr_next_version_desktop
+
+    return l10n_utils.render(request, 'firefox/all-unified.html', context)
 
 
 def all_downloads(request, platform, channel):

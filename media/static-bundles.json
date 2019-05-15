@@ -653,6 +653,12 @@
     },
     {
       "files": [
+        "css/firefox/all-unified.scss"
+      ],
+      "name": "firefox_all_unified"
+    },
+    {
+      "files": [
         "css/mozorg/lean-data.scss"
       ],
       "name": "lean-data"
@@ -1487,9 +1493,23 @@
       "files": [
         "js/base/mozilla-share-cta.js",
         "js/base/mozilla-pager.js",
-        "js/firefox/all-downloads.js"
+        "js/firefox/all/all-downloads.js"
       ],
       "name": "firefox_all"
+    },
+    {
+      "files": [
+        "js/firefox/all/all-downloads-unified-head.js"
+      ],
+      "name": "firefox_all_unified_head"
+    },
+    {
+      "files": [
+        "protocol/js/protocol-modal.js",
+        "js/firefox/all/all-downloads-unified.js",
+        "js/firefox/all/all-downloads-unified-init.js"
+      ],
+      "name": "firefox_all_unified"
     },
     {
       "files": [
