@@ -19,10 +19,9 @@ from bedrock.base.waffle import switch
 from bedrock.contentcards.models import get_page_content_cards
 from bedrock.mozorg.credits import CreditsFile
 from bedrock.mozorg.forums import ForumsFile
-from bedrock.mozorg.models import ContributorActivity, TwitterCache
+from bedrock.mozorg.models import ContributorActivity
 from bedrock.mozorg.util import (fxa_concert_rsvp,
                                  get_fxa_oauth_token, get_fxa_profile_email)
-from bedrock.newsletter.forms import NewsletterFooterForm
 from bedrock.pocketfeed.models import PocketArticle
 from bedrock.wordpress.views import BlogPostsView
 
@@ -65,14 +64,6 @@ def mozid_data_view(request, source_name):
 def contribute_embed(request):
     return l10n_utils.render(request,
                              'mozorg/contribute/contribute-embed.html')
-
-
-@xframe_allow
-def contribute_studentambassadors_landing(request):
-    tweets = TwitterCache.objects.get_tweets_for('mozstudents')
-    return l10n_utils.render(request,
-                             'mozorg/contribute/studentambassadors/landing.html',
-                             {'tweets': tweets})
 
 
 @require_safe
@@ -148,14 +139,6 @@ def namespaces(request, namespace):
     context['slug'] = namespace
     template = 'mozorg/namespaces.html'
     return django_render(request, template, context)
-
-
-def contribute_friends(request):
-    newsletter_form = NewsletterFooterForm('firefox-friends', l10n_utils.get_locale(request))
-
-    return l10n_utils.render(request,
-                             'mozorg/contribute/friends.html',
-                             {'newsletter_form': newsletter_form})
 
 
 class TechnologyView(BlogPostsView):

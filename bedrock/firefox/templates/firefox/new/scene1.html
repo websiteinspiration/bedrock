@@ -15,11 +15,8 @@
 {% endblock %}
 
 {% block experiments %}
-  {% if switch('experiment_firefox_new_pre_download', ['en-US']) %}
-    {{ js_bundle('experiment_firefox_new_pre_download') }}
-  {% endif %}
-  {% if switch('experiment_firefox_new_features', ['en-GB', 'de']) %}
-    {{ js_bundle('experiment_firefox_new_features') }}
+  {% if switch('experiment_firefox_new_trailhead', ['en-US']) %}
+    {{ js_bundle('experiment_firefox_new_trailhead') }}
   {% endif %}
 {% endblock %}
 

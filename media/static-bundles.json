@@ -58,25 +58,6 @@
     },
     {
       "files": [
-        "css/firefox/new/newsletter/scene2-centered.scss"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene2_centered"
-    },
-    {
-      "files": [
-        "css/firefox/new/newsletter/scene1-embed.scss"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene1_embed"
-    },
-    {
-      "files": [
-        "css/firefox/home/pre-download-newsletter.scss",
-        "css/firefox/new/newsletter/scene1-pre-download.scss"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene1_modal"
-    },
-    {
-      "files": [
         "css/sandstone/sandstone-resp.less",
         "css/base/notification-banner.less",
         "css/tabzilla/tabzilla-static.less",
@@ -151,16 +132,9 @@
     },
     {
       "files": [
-        "css/base/social-widgets.less",
-        "css/mozorg/contribute/studentambassadors/landing.less"
+        "css/firefox/campaign/berlin-variation.scss"
       ],
-      "name": "contribute-studentambassadors-landing"
-    },
-    {
-      "files": [
-        "css/firefox/new/berlin-variation.scss"
-      ],
-      "name": "firefox_new_berlin_variation"
+      "name": "firefox_campaign_berlin_variation"
     },
     {
       "files": [
@@ -233,16 +207,22 @@
     },
     {
       "files": [
+        "css/firefox/new/trailhead/download.scss"
+      ],
+      "name": "firefox_new_download"
+    },
+    {
+      "files": [
+        "css/firefox/new/trailhead/thanks.scss"
+      ],
+      "name": "firefox_new_thanks"
+    },
+    {
+      "files": [
         "css/base/mozilla-fxa-form.scss",
         "css/firefox/new/scene1.scss"
       ],
       "name": "firefox_new_scene1"
-    },
-    {
-      "files": [
-        "css/firefox/new/scene1-features-experiment.scss"
-      ],
-      "name": "experiment_firefox_new_features"
     },
     {
         "files": [
@@ -260,9 +240,9 @@
     },
     {
       "files": [
-        "css/firefox/new/compare.scss"
+        "css/firefox/campaign/compare.scss"
       ],
-      "name": "firefox_new_compare"
+      "name": "firefox_campaign_compare"
     },
     {
       "files": [
@@ -356,15 +336,7 @@
     },
     {
       "files": [
-        "css/newsletter/moznewsletter-subscribe.less",
-        "css/mozorg/contribute/taskview.less"
-      ],
-      "name": "contribute-taskview"
-    },
-    {
-      "files": [
-        "css/mozorg/home/home-2018.scss",
-        "css/mozorg/home/fundraiser-apr2019.scss"
+        "css/mozorg/home/home-2018.scss"
       ],
       "name": "home-2018"
     },
@@ -482,12 +454,6 @@
     },
     {
       "files": [
-        "css/mozorg/contribute/signup.less"
-      ],
-      "name": "contribute-signup"
-    },
-    {
-      "files": [
         "css/firefox/developer/developer.scss",
         "css/firefox/developer/whatsnew.scss"
       ],
@@ -537,12 +503,6 @@
         "css/newsletter/newsletter-mozilla.scss"
       ],
       "name": "newsletter-mozilla"
-    },
-    {
-      "files": [
-        "css/mozorg/contribute/friends.less"
-      ],
-      "name": "contribute-friends"
     },
     {
       "files": [
@@ -636,9 +596,9 @@
     },
     {
         "files": [
-          "css/firefox/new/better-browser.scss"
+          "css/firefox/campaign/better-browser.scss"
         ],
-        "name": "firefox_new_better_browser"
+        "name": "firefox_campaign_better_browser"
     },
     {
       "files": [
@@ -693,10 +653,10 @@
     },
     {
       "files": [
-        "css/firefox/new/berlin.scss",
-        "css/firefox/new/berlin-aus-gruenden.scss"
+        "css/firefox/campaign/berlin.scss",
+        "css/firefox/campaign/berlin-aus-gruenden.scss"
       ],
-      "name": "firefox_new_berlin_aus_gruenden"
+      "name": "firefox_campaign_berlin_aus_gruenden"
     },
     {
       "files": [
@@ -771,9 +731,9 @@
     },
     {
       "files": [
-        "css/firefox/new/berlin.scss"
+        "css/firefox/campaign/berlin.scss"
       ],
-      "name": "firefox_new_berlin"
+      "name": "firefox_campaign_berlin"
     },
     {
       "files": [
@@ -951,9 +911,9 @@
     {
       "files": [
         "js/firefox/new/variation-scene1.js",
-        "js/firefox/new/berlin-scene1-variation.js"
+        "js/firefox/campaign/berlin-scene1-variation.js"
       ],
-      "name": "firefox_new_scene1_berlin_variation"
+      "name": "firefox_campaign_scene1_berlin_variation"
     },
     {
       "files": [
@@ -1061,6 +1021,32 @@
     },
     {
       "files": [
+        "js/base/mozilla-traffic-cop.js",
+        "js/firefox/new/trailhead/experiment.js"
+      ],
+      "name": "experiment_firefox_new_trailhead"
+    },
+    {
+      "files": [
+        "js/firefox/new/trailhead/variation.js"
+      ],
+      "name": "experiment_firefox_new_trailhead_variation"
+    },
+    {
+      "files": [
+        "protocol/js/protocol-modal.js",
+        "js/firefox/new/trailhead/download.js"
+      ],
+      "name": "firefox_new_download"
+    },
+    {
+      "files": [
+        "js/firefox/new/scene2.js"
+      ],
+      "name": "firefox_new_thanks"
+    },
+    {
+      "files": [
         "js/base/mozilla-modal.js",
         "js/firefox/new/scene1.js"
       ],
@@ -1083,26 +1069,6 @@
     },
     {
       "files": [
-        "js/base/mozilla-traffic-cop.js",
-        "js/firefox/new/experiment-features.js"
-      ],
-      "name": "experiment_firefox_new_features"
-    },
-    {
-      "files": [
-        "js/firefox/new/experiment-features-variation.js"
-      ],
-      "name": "experiment_firefox_new_features_variation"
-    },
-    {
-      "files": [
-        "js/base/mozilla-traffic-cop.js",
-        "js/firefox/new/newsletter/experiment.js"
-      ],
-      "name": "experiment_firefox_new_pre_download"
-    },
-    {
-      "files": [
         "js/etc/firefox/retention/confetti.js"
       ],
       "name": "etc-firefox-retention-thank-you"
@@ -1121,36 +1087,6 @@
         "js/firefox/new/scene2-email.js"
       ],
       "name": "firefox_new_scene2_email"
-    },
-    {
-      "files": [
-        "js/firefox/new/newsletter/variation.js"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene1_variation"
-    },
-    {
-      "files": [
-        "js/firefox/new/newsletter/scene1-embed.js"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene1_embed"
-    },
-    {
-      "files": [
-        "js/firefox/new/newsletter/scene1-modal.js"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene1_modal"
-    },
-    {
-      "files": [
-        "js/firefox/new/newsletter/scene2-centered.js"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene2_centered"
-    },
-    {
-      "files": [
-        "js/firefox/new/newsletter/scene2-embed.js"
-      ],
-      "name": "experiment_firefox_new_pre_download_scene2_embed"
     },
     {
       "files": [
@@ -1183,12 +1119,6 @@
         "js/mozorg/home/home.js"
       ],
       "name": "home"
-    },
-    {
-      "files": [
-        "js/mozorg/home/fundraiser-apr2019.js"
-      ],
-      "name": "home-fundraiser-apr2019"
     },
     {
       "files": [
@@ -1256,13 +1186,6 @@
         "js/mozorg/contribute/contribute-landing.js"
       ],
       "name": "contribute-landing"
-    },
-    {
-      "files": [
-        "js/base/mozilla-svg-image-fallback.js",
-        "js/mozorg/contribute/friends.js"
-      ],
-      "name": "contribute-friends"
     },
     {
       "files": [
@@ -1452,12 +1375,6 @@
     },
     {
       "files": [
-        "js/mozorg/contribute/signup.js"
-      ],
-      "name": "contribute-signup"
-    },
-    {
-      "files": [
         "js/base/mozilla-modal.js",
         "js/foundation/annual2012.js"
       ],
@@ -1513,12 +1430,6 @@
     },
     {
       "files": [
-        "js/mozorg/contribute/taskview.js"
-      ],
-      "name": "contribute-taskview"
-    },
-    {
-      "files": [
         "js/base/mozilla-fxa-form.js",
         "js/firefox/firstrun/firstrun_quantum.js"
       ],
@@ -1535,9 +1446,9 @@
     {
       "files": [
         "js/firefox/new/variation-scene1.js",
-        "js/firefox/new/berlin-scene1.js"
+        "js/firefox/campaign/berlin-scene1.js"
       ],
-      "name": "firefox_new_scene1_berlin"
+      "name": "firefox_campaign_scene1_berlin"
     },
     {
       "files": [
@@ -1625,7 +1536,8 @@
         "js/base/base-page-init.js",
         "js/base/core-datalayer.js",
         "js/base/core-datalayer-init.js",
-        "js/base/search-params.js"
+        "js/base/search-params.js",
+        "js/base/fxa-utm-referral.js"
       ],
       "name": "common"
     },
@@ -1647,7 +1559,8 @@
         "js/base/base-page-init.js",
         "js/base/core-datalayer.js",
         "js/base/core-datalayer-init.js",
-        "js/base/search-params.js"
+        "js/base/search-params.js",
+        "js/base/fxa-utm-referral.js"
       ],
       "name": "common-protocol"
     },
