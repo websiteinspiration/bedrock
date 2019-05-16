@@ -1,0 +1,233 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+$font-path: '/media/fonts';
+$image-path: '/media/protocol/img';
+
+@import '../protocol/base/fonts/sharpsans';
+
+@import '../../protocol/css/includes/lib';
+@import '../../protocol/css/components/feature-card';
+@import '../../protocol/css/components/hero';
+
+
+.mzp-t-firefox {
+    color: $color-off-black;
+
+    h1, h2, h3, h4 {
+        font-family: sharpsans, sans-serif;
+        font-weight: normal;
+    }
+}
+
+.c-accounts-hero {
+    padding: $spacing-lg 0;
+    text-align: center;
+
+    .c-accounts-hero-title {
+        @include text-display-lg;
+        @include at2x('/media/img/logos/firefox/logo-master-wordmark-dark.png', 140px, 58px);
+        background-position: center top;
+        background-repeat: no-repeat;
+        margin-bottom: $spacing-xl;
+        padding-top: (60px + $spacing-2xl);
+
+        span {
+            color: $color-red-50;
+        }
+    }
+
+    .c-accounts-hero-desc {
+        @include text-body-lg;
+    }
+
+    @media #{$mq-md} {
+        background: transparent url('/media/img/firefox/accounts/trailhead/accounts-hero-logged-out.svg') right -720px top no-repeat;
+        @include background-size(1660px 275px);
+
+        .state-fxa-supported-signed-in & {
+            @include background-size(2188px 275px);
+            background-image: url('/media/img/firefox/accounts/trailhead/accounts-hero-logged-in.svg');
+            background-position: right -960px top -40px;
+        }
+    }
+
+    @media #{$mq-lg} {
+        @include background-size(3441px 570px);
+        @include bidi(((text-align, left, right),));
+        background-position: center top;
+        min-height: 560px;
+
+        .state-fxa-supported-signed-in & {
+            @include background-size(3500px 440px);
+            background-position: center top;
+            min-height: 420px;
+        }
+
+        @supports (display:grid) {
+            & > .mzp-l-content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: $spacing-2xl;
+            }
+        }
+
+        .c-accounts-hero-title {
+            @include bidi(((background-position, left top, right top),));
+        }
+
+        .c-accounts-form {
+            margin-top: (60px + $spacing-2xl);
+        }
+    }
+}
+
+
+.c-accounts-form {
+    background: $color-white;
+    border-radius: 6px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .15);
+    margin: $layout-lg auto 0;
+    max-width: 330px;
+    padding: $spacing-lg;
+    text-align: center;
+
+    .fxa-email-form-title {
+        @include text-display-sm;
+    }
+
+    .state-fxa-supported-signed-in & {
+        display: none;
+    }
+
+    .fxa-signin {
+        @include text-body-sm;
+        margin-top: $spacing-lg;
+    }
+}
+
+.c-section-title {
+    @include text-display-md;
+    max-width: $content-sm;
+    margin: $spacing-md auto $spacing-2xl;
+    text-align: center;
+}
+
+
+.c-product-list {
+    max-width: $content-md;
+    margin: $spacing-2xl auto;
+
+    @media #{$mq-md} {
+        @supports (display:grid) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: $spacing-lg;
+        }
+    }
+}
+
+.c-product-list-item {
+    width: 248px;
+    margin: 0 auto $spacing-xl;
+
+    a:link,
+    a:visited {
+        color: $color-off-black;
+        display: block;
+        text-decoration: none;
+
+        &:hover .c-product-list-desc,
+        &:focus .c-product-list-desc {
+            text-decoration: underline;
+        }
+    }
+}
+
+.c-product-list-title {
+    @include text-display-sm;
+    margin: 0 0 $spacing-lg;
+    @include bidi((
+        (padding-left, $layout-lg, 0),
+        (padding-right, 0, $layout-lg),
+        (background-position, left top, right top),
+    ));
+    background-repeat: no-repeat;
+
+    min-height: 50px;
+
+    span {
+        display: block;
+        font-weight: normal;
+        font-family: 'Open Sans';
+    }
+
+    .t-product-firefox & {
+        background-image: url('/media/img/logos/firefox/logo-quantum.png');
+        @include background-size(50px, 50px);
+    }
+
+    .t-product-lockwise & {
+        background-image: url('/media/img/logos/firefox/logo-lockwise.svg');
+        @include background-size(50px, 50px);
+    }
+
+    .t-product-monitor & {
+        background-image: url('/media/img/logos/firefox/logo-monitor.svg');
+        @include background-size(50px, 50px);
+    }
+
+    .t-product-send & {
+        background-image: url('/media/img/logos/firefox/logo-send.svg');
+        @include background-size(50px, 50px);
+    }
+}
+
+.c-product-list-desc {
+    @include text-body-lg;
+}
+
+.c-accounts-products-tagline {
+    @include text-display-sm;
+    font-family: sharpsans, sans-serif;
+    color: $color-red-50;
+    max-width: $content-md;
+    margin: $layout-lg auto;
+    text-align: center;
+}
+
+
+.c-accounts-value {
+    background: rgba(0, 0, 0, .1);
+    margin-bottom: $layout-lg;
+    min-height: 690px;
+    display: flex;
+    align-items: center;
+
+    &.t-value-respect {
+        @include at2x('/media/img/firefox/accounts/trailhead/value-respect.jpg', 1800px, 690px);
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include bidi((
+            (padding-left, 50%, 0),
+            (padding-right, 0, 50%),
+            // (background-position, left center, right center),
+        ));
+    }
+
+    &.t-value-knowledge {
+        @include at2x('/media/img/firefox/accounts/trailhead/value-knowledge.jpg', 1800px, 690px);
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include bidi((
+            (padding-right, 50%, 0),
+            (padding-left, 0, 50%),
+            // (background-position, right center, left center),
+        ));
+    }
+}
+
+.c-accounts-value-title {
+    @include text-display-md;
+}
