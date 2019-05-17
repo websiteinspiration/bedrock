@@ -5,6 +5,9 @@
 $font-path: '/media/fonts';
 $image-path: '/media/protocol/img';
 
+// Enable Firefox Sans on Bedrock
+@import 'base/fonts/firefox';
+
 @import '../../protocol/css/protocol.scss';
 @import '../../protocol/css/components/button';
 

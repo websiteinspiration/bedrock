@@ -61,7 +61,7 @@
 
 .c-intro-section {
     p {
-        @include zilla-slab;
+        @include font-mozilla;
         @include text-display-sm;
         font-style: italic;
         margin-bottom: 0;

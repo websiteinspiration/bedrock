@@ -50,10 +50,6 @@ $image-path: '/media/protocol/img';
 .c-primary-cta-wrapper {
     position: relative;
 
-    h2, h3, h4 {
-        @include open-sans;
-    }
-
     p {
         margin-bottom: 0;
     }
@@ -224,10 +220,6 @@ $image-path: '/media/protocol/img';
 
 .c-sticky-cta-wrapper {
     position: relative;
-
-    h2, h3 {
-        @include open-sans;
-    }
 
     p {
         margin-bottom: 0;
@@ -420,7 +412,6 @@ $image-path: '/media/protocol/img';
 
     .section-heading {
         @include text-display-xs;
-        @include open-sans;
         margin-bottom: $spacing-sm;
     }
 
@@ -461,7 +452,6 @@ $image-path: '/media/protocol/img';
 }
 
 .c-secondary-cta-title {
-    @include open-sans;
     @include text-display-md;
 }
 

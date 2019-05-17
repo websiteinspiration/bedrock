@@ -14,10 +14,6 @@ $image-path: '/media/protocol/img';
 /* -------------------------------------------------------------------------- */
 // Custom layout
 
-h1, h2, h3 {
-    @include open-sans;
-}
-
 ul li span {
     font-weight: bold;
 }

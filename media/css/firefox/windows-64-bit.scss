@@ -19,7 +19,6 @@ $image-path: '/media/protocol/img';
     .hero-content {
         padding-top: $layout-xl;
         h1 {
-            @include open-sans;
             @include text-display-lg;
             margin: 0 auto $spacing-2xl;
             @media #{$mq-lg} {
@@ -45,7 +44,6 @@ $image-path: '/media/protocol/img';
         margin-bottom: $layout-lg;
 
         h2 {
-            @include open-sans;
             @include text-display-lg;
         }
     }
