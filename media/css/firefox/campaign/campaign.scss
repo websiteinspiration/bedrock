@@ -5,10 +5,10 @@
 $font-path: '/media/fonts';
 $image-path: '/media/protocol/img';
 
-@import '../../protocol/css/includes/lib';
-@import '../../protocol/css/components/hero';
-@import '../../protocol/css/components/picto-card';
-@import '../../protocol/css/templates/card-layout';
+@import '../../../protocol/css/includes/lib';
+@import '../../../protocol/css/components/hero';
+@import '../../../protocol/css/components/picto-card';
+@import '../../../protocol/css/templates/card-layout';
 
 //* ====================================================================== */
 //  Main content background
@@ -101,6 +101,7 @@ $image-path: '/media/protocol/img';
     }
 
     .mzp-c-hero-desc {
+        @include font-firefox;
         @include text-display-md;
     }
 
